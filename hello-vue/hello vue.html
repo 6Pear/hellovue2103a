@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<div style="background-color: black">
+<head>
+    <meta charset="UTF-8">
+    <title>内蒙非诚勿扰</title>
+
+<!--    <audio src="sound/fcwr.mp3" autoplay="autoplay" preload="auto" ></audio>-->
+    <embed src="sound/ratherBe.mp3" width="1px" height="1px" loop="true" autostart="hiddentrue" >
+
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52  src="sound/fcwr.mp3" hidden="true"></iframe>-->
+<center style="background-color: black">
+    <p style="color: red; font-size: 150px">内蒙非诚勿扰</p>
+<div id="app" style="color: aqua" >
+    <input type="text" v-model="num">
+    <button v-on:click="num++" style="color: red">亮灯</button>
+    <button v-on:click="num--" style="color: red">灭灯</button>
+        <h1 style="color: deepskyblue">
+            <span style="color: deeppink">{{name}}</span>，一米七!!!!! 已有 <span style="color: red">{{num}}</span>位男嘉宾为她留灯!赠送马尔代夫7日游！！
+        </h1>
+    <input type="checkbox" v-model="language" value="邓伦">一号男嘉宾：男神邓伦<br/>
+    <input type="checkbox" v-model="language" value="连紫玮">一号女嘉宾：女神连紫玮<br/>
+<!--    <input type="checkbox" v-model="language" value="史俊飞">三号男嘉宾：史俊飞<br/>-->
+    你选择了:{{language.join('♥')}}
+</div>
+    <div>
+        <img src="img/zsy.jpg" width="300px" height="300px">
+        <img src="img/zsy.jpg" width="300px"  height="300px">
+        <img src="img/zsy.jpg" width="300px" height="300px">
+    </div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            name:"连紫玮女嘉宾",
+            num:99,
+            language:[],   /*记录选中的语言的值*/
+            data:{
+                show:true
+            },
+        },
+        methods:{
+            add:function(){
+                // this代表的当前vue实例
+                this.num--;
+            }
+        }
+    })
+</script>
+</center>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div id="app">
+        <input type="text" v-model="name"/>
+        <input type="text" v-model="num" style="color: red">
+        <button v-on:click="num++">亮灯</button>
+        <button v-on:click="num--">灭灯</button>
+        <h2>
+            <span style="color: red"> {{name}}</span>，非常靓！！！有<span style="color: red">{{num}}</span>位男神为他着迷。
+        </h2><br/>
+<!--        v-text:<span v-text="hello"></span> <br/>-->
+<!--        v-html:<span v-html="hello"></span>-->
+<!--        <input type="checkbox" v-model="language" value="Java" />Java<br/>-->
+<!--        <input type="checkbox" v-model="language" value="Javascript" />Javascript<br/>-->
+<!--        <input type="checkbox" v-model="language" value="C++" />C++<br/>-->
+<!--        你选择了：{{language.join(',')}}-->
+        <img src="img/zsy.jpg" style="width: 600px" height="600px">
+        <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <tr v-for="(user, index) in users" v-if="user.gender=='女'">
+            <td>{{index + 1>9?index+1:'0'+(index+1)}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+        </table>
+        <ul>
+            <li v-for="(value, key, index) in user">
+                {{index + 1}}. {{key}} - {{value}}
+            </li>
+        </ul>
+        <button v-on:click="show = !show">点我呀</button>
+        <h1 v-if="show">
+            看到我啦？！
+        </h1>
+        <h1 v-else>
+            看不到我？！
+        </h1>
+        <h1 v-show="show">
+            看到我啦？！show
+        </h1>
+    </div>
+</center>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 创建vue实例
+    var app = new Vue({
+        el: "#app", // el即element，该vue实例要渲染的页面元素
+        data: { // 渲染页面需要的数据
+            name: "连紫玮",
+            num: 100,
+            // hello:"<h1>11111</h1>"
+            language:[],/*记录选中语言的值*/
+            users:[
+                {name:'柳岩', gender:'女', age: 21},
+                {name:'峰哥', gender:'男', age: 18},
+                {name:'范冰冰', gender:'女', age: 24},
+                {name:'刘亦菲', gender:'女', age: 18},
+                {name:'古力娜扎', gender:'女', age: 25},
+            ],
+            user:{name:'峰哥', gender:'男', age: 18},
+            show:true
+        }
+    });
+</script>
+</html>
