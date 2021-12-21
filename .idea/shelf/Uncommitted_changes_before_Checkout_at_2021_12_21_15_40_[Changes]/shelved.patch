@@ -1,0 +1,18 @@
+Index: hello-vue/hello.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:v-on=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n<center>\r\n    <div id=\"app\">\r\n        <input type=\"text\" v-model=\"name\"/>\r\n        <input type=\"text\" v-model=\"num\" style=\"color: red\">\r\n        <button v-on:click=\"num++\">亮灯</button>\r\n        <button v-on:click=\"num--\">灭灯</button>\r\n        <h2>\r\n            <span style=\"color: red\"> {{name}}</span>，非常靓！！！有<span style=\"color: red\">{{num}}</span>位男神为他着迷。\r\n        </h2><br/>\r\n<!--        v-text:<span v-text=\"hello\"></span> <br/>-->\r\n<!--        v-html:<span v-html=\"hello\"></span>-->\r\n<!--        <input type=\"checkbox\" v-model=\"language\" value=\"Java\" />Java<br/>-->\r\n<!--        <input type=\"checkbox\" v-model=\"language\" value=\"Javascript\" />Javascript<br/>-->\r\n<!--        <input type=\"checkbox\" v-model=\"language\" value=\"C++\" />C++<br/>-->\r\n<!--        你选择了：{{language.join(',')}}-->\r\n        <img src=\"img/zsy.jpg\" style=\"width: 600px\" height=\"600px\">\r\n        <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\r\n        <tr>\r\n            <th>序号</th>\r\n            <th>姓名</th>\r\n            <th>性别</th>\r\n            <th>年龄</th>\r\n        </tr>\r\n        <tr v-for=\"(user, index) in users\" v-if=\"user.gender=='女'\">\r\n            <td>{{index + 1>9?index+1:'0'+(index+1)}}</td>\r\n            <td>{{user.name}}</td>\r\n            <td>{{user.gender}}</td>\r\n            <td>{{user.age}}</td>\r\n        </tr>\r\n        </table>\r\n        <ul>\r\n            <li v-for=\"(value, key, index) in user\">\r\n                {{index + 1}}. {{key}} - {{value}}\r\n            </li>\r\n        </ul>\r\n        <button v-on:click=\"show = !show\">点我呀</button>\r\n        <h1 v-if=\"show\">\r\n            看到我啦？！俊飞\r\n            史俊飞\r\n            房志强\r\n            轩\r\n        </h1>\r\n        <h1 v-else>\r\n            看不到我？！\r\n        </h1>\r\n        <h1 v-show=\"show\">\r\n            看到我啦？！show\r\n        </h1>\r\n    </div>\r\n</center>\r\n</body>\r\n<script src=\"node_modules/vue/dist/vue.js\"></script>\r\n<script>\r\n    // 创建vue实例\r\n    var app = new Vue({\r\n        el: \"#app\", // el即element，该vue实例要渲染的页面元素\r\n        data: { // 渲染页面需要的数据\r\n            name: \"连紫玮\",\r\n            num: 100,\r\n            // hello:\"<h1>11111</h1>\"\r\n            language:[],/*记录选中语言的值*/\r\n            users:[\r\n                {name:'柳岩', gender:'女', age: 21},\r\n                {name:'峰哥', gender:'男', age: 18},\r\n                {name:'范冰冰', gender:'女', age: 24},\r\n                {name:'刘亦菲', gender:'女', age: 18},\r\n                {name:'古力娜扎', gender:'女', age: 25},\r\n            ],\r\n            user:{name:'峰哥', gender:'男', age: 18},\r\n            show:true\r\n        }\r\n    });\r\n</script>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hello-vue/hello.html b/hello-vue/hello.html
+--- a/hello-vue/hello.html	(revision c244dcab4aac95bbddbf668e449ddee1ef63fad8)
++++ b/hello-vue/hello.html	(date 1640072433386)
+@@ -45,7 +45,6 @@
+             看到我啦？！俊飞
+             史俊飞
+             房志强
+-            轩
+         </h1>
+         <h1 v-else>
+             看不到我？！
